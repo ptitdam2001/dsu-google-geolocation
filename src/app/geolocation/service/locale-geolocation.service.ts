@@ -29,7 +29,7 @@ export class LocaleGeolocationService {
 	 * @returns {Observable} An observable sequence with the geographical location of the device running the client.
    */
   public getLocation(opts): Observable<any> {
-    return Observable.create(observer => {
+    return Observable.create( (observer: any) => {
       if (window.navigator && window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition( (position) => {
           observer.next(position);

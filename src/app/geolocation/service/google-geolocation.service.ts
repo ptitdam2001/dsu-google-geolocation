@@ -1,7 +1,7 @@
 import { Http } from '@angular/http';
 import { Injectable, Optional, Inject } from '@angular/core';
 
-
+import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import { GeolocationService } from './geolocation-service';
 import { GoogleGeocodeParameters } from '../models/google-geocode-parameters';
@@ -47,9 +47,9 @@ export class GoogleGeolocationService implements GeolocationService {
   /**
    * Give location from a string
    * @input address string
-   * @return Observable<Array<LocationData>>
+   * @return Observable<Array<any>>
    */
-  public searchFromString(address: string) {
+  public searchFromString(address: string): Observable<Array<any>> {
     let parameters = new GoogleGeocodeParameters(address, this.key);
 
     return this.ws.get(this.buildUri(), {search: parameters.toUrlSearchParams()})

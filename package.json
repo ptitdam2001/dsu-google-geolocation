@@ -17,7 +17,10 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "build": "rm -rf lib && tsc -p src",
+    "prepublish": "tsc",
+    "watch": "tsc -w "
   },
   "private": false,
   "dependencies": {

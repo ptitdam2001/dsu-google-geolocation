@@ -1,4 +1,3 @@
-import { stringify } from '@angular/platform-browser/testing/facade/lang';
 import { Component, OnInit } from '@angular/core';
 import { LocaleGeolocationService } from '../geolocation/service/locale-geolocation.service';
 
