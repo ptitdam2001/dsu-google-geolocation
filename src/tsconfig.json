@@ -16,10 +16,13 @@
       "../node_modules/@types"
     ]
   },
+  "files": [
+    "../module.d.ts"
+  ]
   "exclude": [
     "node_modules",
     "dist",
-    "lib",
+    "e2e",
     "runtime",
     "typings/main",
     "typings/main.d.ts",
