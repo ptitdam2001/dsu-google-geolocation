@@ -8,8 +8,58 @@ import { GoogleGeolocationService } from '../../service/google-geolocation.servi
 
 @Component({
   selector: 'app-searchbar',
-  templateUrl: './searchbar.component.html',
-  styleUrls: ['./searchbar.component.scss']
+  // templateUrl: './searchbar.component.html',
+  template: `
+  <div>
+    <input placeholder="Search a town" [formControl]="term" type="text" />
+    <ul ng-if="items.length > 0">
+      <li *ngFor="let item of items" (click)="select(item)">{{item.formatted_address}}</li>
+    </ul>
+  </div>
+  `,
+  // styleUrls: ['./searchbar.component.scss']
+  styles: [`
+:host {
+  padding: 10px;
+}
+
+:host input {
+  width: 100%;
+  padding: 0 5px;
+  border-radius: 5px;
+  height: 35px;
+  font-size: 20px;
+  box-shadow: 5px 1px black;
+  line-height: 35px;
+}
+
+:host ul {
+  list-style: none;
+  padding: 0;
+  display: block;
+  border: solid 1px #aaa;
+  border-radius: 0 0 3px 3px;
+  margin-top: 0;
+}
+
+:host ul li {
+  border-bottom: solid 1px #999;
+  padding: 3px;
+  background: #fff;
+  height: 30px;
+  line-height: 30px;
+}
+
+:host ul li:last-child {
+  border-bottom: none;
+}
+
+:host ul li:hover {
+  background: #416399;
+  cursor: pointer;
+  color: #fff;
+}`
+  ]
 })
 export class SearchbarComponent implements OnInit {
 
