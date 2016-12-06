@@ -30,12 +30,10 @@ var SearchbarComponent = (function () {
             .subscribe(function (results) { return _this.items = results; });
     };
     SearchbarComponent.prototype.select = function (item) {
-        // transmit selected area to parent component with (onSelect)
         var data = new classes_1.LocationData();
         data.long_name = item.formatted_address;
         data.lat = item.geometry.location.lat;
         data.lon = item.geometry.location.lng;
-        // send to output onSelect the response of request
         this.onSelect.emit(data);
     };
     __decorate([
@@ -44,10 +42,8 @@ var SearchbarComponent = (function () {
     ], SearchbarComponent.prototype, "onSelect", void 0);
     SearchbarComponent = __decorate([
         core_1.Component({
-            selector: 'app-searchbar',
-            // templateUrl: './searchbar.component.html',
+            selector: 'geo-searchbar',
             template: "\n  <div>\n    <input placeholder=\"Search a town\" [formControl]=\"term\" type=\"text\" />\n    <ul ng-if=\"items.length > 0\">\n      <li *ngFor=\"let item of items\" (click)=\"select(item)\">{{item.formatted_address}}</li>\n    </ul>\n  </div>\n  ",
-            // styleUrls: ['./searchbar.component.scss']
             styles: ["\n:host {\n  padding: 10px;\n}\n\n:host input {\n  width: 100%;\n  padding: 0 5px;\n  border-radius: 5px;\n  height: 35px;\n  font-size: 20px;\n  box-shadow: 5px 1px black;\n  line-height: 35px;\n}\n\n:host ul {\n  list-style: none;\n  padding: 0;\n  display: block;\n  border: solid 1px #aaa;\n  border-radius: 0 0 3px 3px;\n  margin-top: 0;\n}\n\n:host ul li {\n  border-bottom: solid 1px #999;\n  padding: 3px;\n  background: #fff;\n  height: 30px;\n  line-height: 30px;\n}\n\n:host ul li:last-child {\n  border-bottom: none;\n}\n\n:host ul li:hover {\n  background: #416399;\n  cursor: pointer;\n  color: #fff;\n}"
             ]
         }), 

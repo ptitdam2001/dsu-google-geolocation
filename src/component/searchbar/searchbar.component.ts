@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { GoogleGeolocationService } from '../../service/google-geolocation.service';
 
 @Component({
-  selector: 'app-searchbar',
+  selector: 'geo-searchbar',
   // templateUrl: './searchbar.component.html',
   template: `
   <div>
