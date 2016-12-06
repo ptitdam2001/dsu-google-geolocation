@@ -1,0 +1,73 @@
+# dsu-google-geolocation
+
+## Installation
+
+To install this library, run:
+
+```bash
+$ npm install https://github.com/ptitdam2001/dsu-google-geolocation.git --save
+```
+
+## Consuming your library
+
+Once you have published your library to npm, you can import your library in any Angular application by running:
+
+```bash
+$ npm install https://github.com/ptitdam2001/dsu-google-geolocation.git --save 
+```
+
+and then from your Angular `AppModule`:
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+// Import your library
+import { GeolocationModule } from 'dsu-google-geolocation';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+
+    // Specify your library as an import
+     GeolocationModule.forRoot({key: '<GOOGLE KEY>', format: 'json'})
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Once your library is imported, you can use its components and services in your Angular application:
+
+```html
+<!-- You can now use your library component in app.component.html -->
+<h1>
+  {{title}}
+</h1>
+<geo-searchbar (onSelect)="onSelectLocation($event)"></geo-searchbar>
+
+```
+
+## Development
+
+To generate all `*.js`, `*.js.map` and `*.d.ts` files:
+
+```bash
+$ npm run tsc
+```
+
+To lint all `*.ts` files:
+
+```bash
+$ npm run lint
+```
+
+## License
+
+MIT © [Damien Suhard](ptitdam2001@gmail.com)

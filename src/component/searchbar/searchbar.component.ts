@@ -13,7 +13,7 @@ import { GoogleGeolocationService } from '../../service/google-geolocation.servi
 })
 export class SearchbarComponent implements OnInit {
 
-  public items;
+  public items: Array<any>;
   public term = new FormControl();
 
   @Output() onSelect = new EventEmitter <LocationData>();
@@ -29,7 +29,7 @@ export class SearchbarComponent implements OnInit {
       .subscribe(results => this.items = results);
   }
 
-  public select(item) {
+  public select(item: any) {
     // transmit selected area to parent component with (onSelect)
     let data = new LocationData();
     data.long_name = item.formatted_address;

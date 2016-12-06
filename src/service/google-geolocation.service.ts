@@ -32,7 +32,7 @@ export class GoogleGeolocationService implements GeolocationService {
   }
 
   /**
-   * init configuration 
+   * init configuration
    * @input config
    */
   public setConfig(config: GeocodeConfig) {
